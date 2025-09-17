@@ -1,6 +1,6 @@
 //Andres Felipe Castaño - 20231578079
 
-package Moldelo;
+package Modelo;
 
 import java.util.Calendar;
 
