@@ -1,20 +1,24 @@
-//Andres Felipe Castaño - 20231578079
-
 package Modelo;
-
+import Modelo.Fecha;
 import java.util.Calendar;
 
-public class Persona {
-    private String id, nombre;
-    private int aa;
+public class Persona{
+    private String id, nombre, tel, correo;
+    private Fecha fNac;
 
-    public Persona(String id, String nombre, int aa) {
+    public Persona(String id, String nom, String tel, String correo, Fecha fNac) {
         this.id = id;
-        this.nombre = nombre;
-        this.aa = aa;
+        this.nombre = nom;
+        this.tel = tel;
+        this.correo = correo;
+        this.fNac = fNac;
     }
-
     public Persona() {
+        this.id = "";
+        this.nombre = "";
+        this.tel = "";
+        this.correo = "";
+        this.fNac = new Fecha();
     }
 
     public String getId() {
@@ -33,21 +37,38 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public int getAa() {
-        return aa;
+    public String getTel() {
+        return tel;
     }
 
-    public void setAa(int aa) {
-        this.aa = aa;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
-    
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public Fecha getfNac() {
+        return fNac;
+    }
+
+    public void setfNac(Fecha fNac) {
+        this.fNac = fNac;
+    }
+
     @Override
-    public String toString(){
-        return "\nId:\t" + getId() + "\nNombre:\t" + getNombre() + "\nAño de nacimento:\t" + getAa();
+    public String toString() {
+        return "Identificacion: " + id + "\nNombre: " + nombre + "\nTelefono: " + tel + "\nCorreo: " + correo + fNac.toString();
     }
     
     public int edad(){
-        Calendar fecha = Calendar.getInstance();
-        return fecha.get(Calendar.YEAR)-this.aa;
+        Calendar fecha=Calendar.getInstance();
+        return fecha.get(Calendar.YEAR)-this.fNac.getAa();
+        
     }
 }
